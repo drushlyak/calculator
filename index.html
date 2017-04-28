@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap 3 на StepkinBLOG.RU</title>
+ 
+<!-- Bootstrap -->
+<link href="css/bootstrap.css" rel="stylesheet">
+ 
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+ 
+
+ 
+<!-- CSS стиль для отображения границы -->
+<style>
+.col-lg-12, .col-lg-3, .col-lg-4, .col-lg-8, .col-md-12, .col-md-3, .col-md-4, .col-md-8, .col-sm-12, .col-sm-3, .col-sm-4, .col-sm-8, .col-xs-12
+{
+border:1px solid #ccc;
+height:60px;
+}
+</style>
+ 
+ 
+ <script src="allacc.js"></script>
+ 
+</head>
+<body>
+
+
+ 
+<div class="container">
+
+<div class="row">
+<div class="col-lg-10 col-md-12 col-sm-12 col-xs-12"> </div>
+<div class="col-lg-2 col-md-12 col-sm-12 col-xs-12"> <a href="#" class="btn btn-primary">План счетов РФ</a> </div>
+</div>
+
+<!-- 1 строка -->
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" > <h1>Калькулятор проводок<h1> </div>
+</div>
+
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center"> 
+
+<div class="form-group">
+    <label class="control-label col-xs-3">Выберите дебет или кредит нужного счета</label>
+    <div class="col-xs-2">
+      <label class="radio-inline">
+        <input type="radio" name="correspondence" value="debit"> Дебет
+      </label>
+    </div>
+    <div class="col-xs-2">
+      <label class="radio-inline">
+        <input type="radio" name="correspondence" value="credit"> Кредит
+      </label>
+    </div>
+  </div> 
+
+</div>
+
+<p id ="test">
+
+	hhhhhhhh
+</p>
+
+<form id="selectIdAccount" name="selectIdAccount" >
+<select id="blockIdAccount" name="blockIdAccount" size="5">
+    <OPTION  VALUE="0">Выбираем любимый фрукт</OPTION>
+	
+	<script>
+	var $string="";
+	for($idAccount in $allAccounts){
+	$string = $string + "<option value = \"" + $idAccount + "\">" + $idAccount +  " " + $allAccounts [$idAccount] + "<\/option\>";
+		//document.getElementById('blockIdAccount').innerHTML = "<p>ffff</p>";
+	
+	}
+	
+	document.getElementById('blockIdAccount').innerHTML = $string;
+
+	alert ($string);
+	</script>
+	<!--/*foreach ($allAccounts as $idAccount => $nameAccount) {
+        //echo '<p><option>' . $idAccount . ' ' . $nameAccount . '</option></p>';
+    //}
+    //echo '</select>'; -->
+
+	</select>
+	</form>
+	
+	
+	 <FORM id="FormMyLove" name="FormMyLove" method="GET" action="select_b.php" >
+<SELECT name="SelectMyLove" id="SelectMyLove" >
+<OPTION  VALUE="0">Выбираем любимый фрукт</OPTION>
+<OPTION SELECTED VALUE="1">Абрикос</OPTION>
+<OPTION VALUE="2">Персик</OPTION>
+<OPTION VALUE="3">Слива</OPTION>
+<OPTION VALUE="7">Груша</OPTION>
+</SELECT>
+</FORM>
+	
+	<p><a id="myAnchor" href="#">Ссылка</a>
+	<script>
+	
+	document.getElementById('myAnchor').innerHTML="Новая ссылка";
+	</script>
+	
+<!-- 2 строка -->
+<div class="row">
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"> Блок 1 </div>
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"> Блок 2 </div>
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"> Блок 3 </div>
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"> Блок 4 </div>
+</div>
+<!-- 3 строка -->
+<div class="row">
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"> Меню </div>
+<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12"> Контент </div>
+</div>
+<!-- 4 строка -->
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> уроки Bootstrap на StepkinBLOG.RU </div>
+</div>
+
+<div class="row">
+<b>Полужирный текст</b>
+<strong>Жирное начертание</strong>
+<i>Курсивное начертание текста</i>
+<mark>Выделенный текст</mark>
+<code>Программный код</code>
+</div>
+
+<div class="row">
+<button type="button" class="btn btn-default">Default</button>
+<button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-info">Info</button>
+<button type="button" class="btn btn-success">Success</button>
+<button type="button" class="btn btn-warning">Warning</button>
+<button type="button" class="btn btn-danger">Danger</button>
+<button type="button" class="btn btn-link">Link</button>
+
+<a href="#" class="btn btn-default">Default</a>
+<a href="#" class="btn btn-primary">Primary</a>
+<a href="#" class="btn btn-info">Info</a>
+<a href="#" class="btn btn-success">Success</a>
+<a href="#" class="btn btn-warning">Warning</a>
+<a href="#" class="btn btn-danger">Danger</a>
+<a href="#" class="btn btn-link">Link</a>
+
+<button type="button" class="btn btn-default" data-toggle="button">По умолчанию</button>
+<button type="button" class="btn btn-primary" data-toggle="button">Основная</button>
+<button type="button" class="btn btn-success" data-toggle="button">Успех</button>
+<button type="button" class="btn btn-info" data-toggle="button">Информация</button>
+<button type="button" class="btn btn-warning" data-toggle="button">Предупреждение</button>
+<button type="button" class="btn btn-danger" data-toggle="button">Опасность</button>
+
+
+</div>
+
+</div>
+ 
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.js"></script>
+
+
+</body>
+</html>
