@@ -11,6 +11,11 @@ function pleaseSelectAcc (){
 	document.getElementById('resultText').innerHTML = "";
 }
 
+function noCorrespondence (){
+	document.getElementById('message').innerHTML = "<div class=\"alert alert-warning\"> <span class=\"close\" data-dismiss=\"alert\">×</span> Двойная запись (оборот одновременно по дебеду и кредиту счетов) при операциях с забалансовыми счетами не используется!</div>";
+	document.getElementById('resultText').innerHTML = "";
+}
+
 function select(){
 	var $selectedAcc = document.getElementById("blockIdAccount"); // Получаем список
 	
@@ -27,33 +32,52 @@ function select(){
 	$resultTitle = "";
 	$resultText = "";
 
-	alert ($valueAcc);
 
+	$valueAcc = $valueAcc.slice(0,-1);
+	
+	alert ($valueAcc);
+	clearMessageBlock()
+	alert ($debit [$valueAcc]);
+	
 	switch($typeOfCorrespondence) {
 		case 'debit':
-
+			
+			if (typeof ($debit [$valueAcc]) != "undefined") {
+			
 			var $length = $debit [$valueAcc].length;
 
 			for (var $i=0;$i<$length;$i++) {
-			$resultText = $resultText + "<p class=\"lead\">" + $debit [$valueAcc][$i] + " " + $allAccounts [($debit [$valueAcc][$i])] + "</p>";
+			$resultText = $resultText + "<p class=\"lead\">" + $debit [$valueAcc][$i] + " " + $allAccounts [($debit [$valueAcc][$i])+" "] + "</p>";
 			};
 
-		var $resultTitle = "<p class=\"lead\">Cчет " + $valueAcc + " " + $allAccounts [$valueAcc] + " корреспондирует по дебету с кредитом счетов:</p>";
+			var $resultTitle = "<p class=\"lead\">Cчет " + $valueAcc + " " + $allAccounts [$valueAcc+" "] + " корреспондирует по дебету с кредитом счетов:</p>";}
+			
+			else {
+				noCorrespondence ();
+							}
 
 		break;
 		case 'credit':
+		if (typeof ($credit [$valueAcc]) != "undefined") {
 		var $length = $credit [$valueAcc].length;
 
 			for (var $i=0;$i<$length;$i++) {
-			$resultText = $resultText + "<p class=\"lead\">" + $credit [$valueAcc][$i] + " " + $allAccounts [($credit [$valueAcc][$i])] + "</p>";
+			$resultText = $resultText + "<p class=\"lead\">" + $credit [$valueAcc][$i] + " " + $allAccounts [($credit [$valueAcc][$i])+" "] + "</p>";
 			};
-		var $resultTitle = "<p class=\"lead\">Cчет " + $valueAcc + " " + $allAccounts [$valueAcc] + " корреспондирует по кредиту с дебетом счетов:</p>";
+		var $resultTitle = "<p class=\"lead\">Cчет " + $valueAcc + " " + $allAccounts [$valueAcc+" "] + " корреспондирует по кредиту с дебетом счетов:</p>";
+		}
 
-
+		else {
+				noCorrespondence ();
+			}
+		
 		break;
 	}
 
-	clearMessageBlock()
+	
+	
+	
+	
 	
 	document.getElementById('resultText').innerHTML = "<div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\" >" + $resultTitle + $resultText + "</div>";
 						
@@ -72,11 +96,13 @@ function subAccounts(){
 	}
 
 	var $valueAcc = $selectedAcc.options[$selectedAcc.selectedIndex].value;
+	
+	$valueAcc = $valueAcc.slice(0,-1);
 
 	if (typeof ($subAccounts [$valueAcc]) != "undefined") {
 
 
-	$resultText = "<p class=\"lead\">Субсчета в к счету " +  $valueAcc + " " + $allAccounts [$valueAcc]+ ":</p>";
+	$resultText = "<p class=\"lead\">Субсчета в к счету " +  $valueAcc + " " + $allAccounts [$valueAcc+" "]+ ":</p>";
 
 	var $length = $subAccounts [$valueAcc].length;
 
