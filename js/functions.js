@@ -27,8 +27,7 @@ function select(){
 	$resultTitle = "";
 	$resultText = "";
 
-
-
+	alert ($valueAcc);
 
 	switch($typeOfCorrespondence) {
 		case 'debit':
@@ -38,6 +37,7 @@ function select(){
 			for (var $i=0;$i<$length;$i++) {
 			$resultText = $resultText + "<p class=\"lead\">" + $debit [$valueAcc][$i] + " " + $allAccounts [($debit [$valueAcc][$i])] + "</p>";
 			};
+
 		var $resultTitle = "<p class=\"lead\">Cчет " + $valueAcc + " " + $allAccounts [$valueAcc] + " корреспондирует по дебету с кредитом счетов:</p>";
 
 		break;
