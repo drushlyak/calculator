@@ -34,10 +34,8 @@ function select(){
 
 
 	$valueAcc = $valueAcc.slice(0,-1);
-	
-	alert ($valueAcc);
-	clearMessageBlock()
-	alert ($debit [$valueAcc]);
+
+	clearMessageBlock();
 	
 	switch($typeOfCorrespondence) {
 		case 'debit':
@@ -74,11 +72,6 @@ function select(){
 		break;
 	}
 
-	
-	
-	
-	
-	
 	document.getElementById('resultText').innerHTML = "<div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\" >" + $resultTitle + $resultText + "</div>";
 						
 }
