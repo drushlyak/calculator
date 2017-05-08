@@ -1,19 +1,10 @@
-function clearResultBlock(){
+function textInfoBlock ($textOfInfoBlock){
+	document.getElementById('message').innerHTML = "<div class=\"alert alert-warning\"> <span class=\"close\" data-dismiss=\"alert\">×</span> "+$textOfInfoBlock+"</div>";
 	document.getElementById('resultText').innerHTML = "";
 }
 
-function clearMessageBlock(){
-	document.getElementById('message').innerHTML = "";
-}
-
-function pleaseSelectAcc (){
-	document.getElementById('message').innerHTML = "<div class=\"alert alert-warning\"> <span class=\"close\" data-dismiss=\"alert\">×</span> Пожалуйста, выберите счет!</div>";
-	document.getElementById('resultText').innerHTML = "";
-}
-
-function noCorrespondence (){
-	document.getElementById('message').innerHTML = "<div class=\"alert alert-warning\"> <span class=\"close\" data-dismiss=\"alert\">×</span> Двойная запись (оборот одновременно по дебеду и кредиту счетов) при операциях с забалансовыми счетами не используется!</div>";
-	document.getElementById('resultText').innerHTML = "";
+function clearBlock ($typeOfBlock){
+	document.getElementById($typeOfBlock).innerHTML = "";
 }
 
 function select(){
@@ -22,7 +13,7 @@ function select(){
 	var $indexAcc = document.getElementById("blockIdAccount").options.selectedIndex;
 	
 	if ($indexAcc == -1){
-		pleaseSelectAcc ();
+		textInfoBlock ('Пожалуйста, выберите счет!');
 	}
 
 	var $valueAcc = $selectedAcc.options[$selectedAcc.selectedIndex].value; // Получаем индекс выделенного элемента
@@ -35,7 +26,7 @@ function select(){
 
 	$valueAcc = $valueAcc.slice(0,-1);
 
-	clearMessageBlock();
+	clearBlock('message');
 	
 	switch($typeOfCorrespondence) {
 		case 'debit':
@@ -51,7 +42,7 @@ function select(){
 			var $resultTitle = "<p class=\"lead\"><b>Cчет " + $valueAcc + " " + $allAccounts [$valueAcc+" "] + " корреспондирует по дебету с кредитом счетов:</b></p>";}
 			
 			else {
-				noCorrespondence ();
+				textInfoBlock('Двойная запись (оборот одновременно по дебеду и кредиту счетов) при операциях с забалансовыми счетами не используется!') ();
 							}
 
 		break;
@@ -66,7 +57,7 @@ function select(){
 		}
 
 		else {
-				noCorrespondence ();
+				textInfoBlock('Двойная запись (оборот одновременно по дебеду и кредиту счетов) при операциях с забалансовыми счетами не используется!') ();
 			}
 		
 		break;
@@ -78,14 +69,14 @@ function select(){
 
 function subAccounts(){
 
-	clearMessageBlock();
-	clearResultBlock();
+	clearBlock('message');
+	clearBlock('resultText');
 
 	var $selectedAcc = document.getElementById("blockIdAccount");
 	var $indexAcc = document.getElementById("blockIdAccount").options.selectedIndex;
 
 	if ($indexAcc == -1){
-		pleaseSelectAcc ();
+		textInfoBlock('Пожалуйста, выберите счет!') ();
 	}
 
 	var $valueAcc = $selectedAcc.options[$selectedAcc.selectedIndex].value;
