@@ -48,7 +48,7 @@ function select(){
 			$resultText = $resultText + "<p class=\"lead\">" + $debit [$valueAcc][$i] + " " + $allAccounts [($debit [$valueAcc][$i])+" "] + "</p>";
 			};
 
-			var $resultTitle = "<p class=\"lead\">Cчет " + $valueAcc + " " + $allAccounts [$valueAcc+" "] + " корреспондирует по дебету с кредитом счетов:</p>";}
+			var $resultTitle = "<p class=\"lead\"><b>Cчет " + $valueAcc + " " + $allAccounts [$valueAcc+" "] + " корреспондирует по дебету с кредитом счетов:</b></p>";}
 			
 			else {
 				noCorrespondence ();
@@ -62,7 +62,7 @@ function select(){
 			for (var $i=0;$i<$length;$i++) {
 			$resultText = $resultText + "<p class=\"lead\">" + $credit [$valueAcc][$i] + " " + $allAccounts [($credit [$valueAcc][$i])+" "] + "</p>";
 			};
-		var $resultTitle = "<p class=\"lead\">Cчет " + $valueAcc + " " + $allAccounts [$valueAcc+" "] + " корреспондирует по кредиту с дебетом счетов:</p>";
+		var $resultTitle = "<p class=\"lead\"><b>Cчет " + $valueAcc + " " + $allAccounts [$valueAcc+" "] + " корреспондирует по кредиту с дебетом счетов:</b></p>";
 		}
 
 		else {
@@ -95,7 +95,7 @@ function subAccounts(){
 	if (typeof ($subAccounts [$valueAcc]) != "undefined") {
 
 
-	$resultText = "<p class=\"lead\">Субсчета в к счету " +  $valueAcc + " " + $allAccounts [$valueAcc+" "]+ ":</p>";
+	$resultText = "<p class=\"lead\"><b>Субсчета в к счету " +  $valueAcc + " " + $allAccounts [$valueAcc+" "]+ ":</b></p>";
 
 	var $length = $subAccounts [$valueAcc].length;
 
