@@ -57,14 +57,13 @@
 	<select id="blockIdAccount" name="blockIdAccount" size="10" class="form-control" >
 		<script>
 			var $string="<option selected value = \"";
-				
-				
+								
 				for($idAccount in $allAccounts){
-				$string = $string  + $idAccount + "\">" + $idAccount +  " " + $allAccounts [$idAccount] + "<\/option\>" + "<option value = \"";
+				$string = $string  + $idAccount + "\">" + $idAccount +  " " + $allAccounts [$idAccount] + "</option>" + "<option value = \"";
 				};
 				
-				$string  = $string.replace ("<option value = \"","")  ;
-				
+				$string  = $string.slice (0,-17)  ;
+		
 			document.getElementById('blockIdAccount').innerHTML = $string;
 		</script>
 	</select>
